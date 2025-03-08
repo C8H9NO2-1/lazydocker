@@ -130,7 +130,7 @@ func (gui *Gui) GetInitialKeybindings() []*Binding {
 		},
 		{
 			ViewName:    "project",
-			Key:         'e',
+			Key:         'f',
 			Modifier:    gocui.ModNone,
 			Handler:     gui.handleEditConfig,
 			Description: gui.Tr.EditConfig,
@@ -194,7 +194,7 @@ func (gui *Gui) GetInitialKeybindings() []*Binding {
 		},
 		{
 			ViewName:    "containers",
-			Key:         'e',
+			Key:         'f',
 			Modifier:    gocui.ModNone,
 			Handler:     gui.handleHideStoppedContainers,
 			Description: gui.Tr.HideStopped,
@@ -516,7 +516,7 @@ func (gui *Gui) GetInitialKeybindings() []*Binding {
 			{ViewName: panel.GetView().Name(), Key: gocui.KeyArrowLeft, Modifier: gocui.ModNone, Handler: gui.previousView},
 			{ViewName: panel.GetView().Name(), Key: gocui.KeyArrowRight, Modifier: gocui.ModNone, Handler: gui.nextView},
 			{ViewName: panel.GetView().Name(), Key: 'h', Modifier: gocui.ModNone, Handler: gui.previousView},
-			{ViewName: panel.GetView().Name(), Key: 'l', Modifier: gocui.ModNone, Handler: gui.nextView},
+			{ViewName: panel.GetView().Name(), Key: 'i', Modifier: gocui.ModNone, Handler: gui.nextView},
 			{ViewName: panel.GetView().Name(), Key: gocui.KeyTab, Modifier: gocui.ModNone, Handler: gui.nextView},
 			{ViewName: panel.GetView().Name(), Key: gocui.KeyBacktab, Modifier: gocui.ModNone, Handler: gui.previousView},
 		}...)
@@ -524,10 +524,10 @@ func (gui *Gui) GetInitialKeybindings() []*Binding {
 
 	setUpDownClickBindings := func(viewName string, onUp func() error, onDown func() error, onClick func() error) {
 		bindings = append(bindings, []*Binding{
-			{ViewName: viewName, Key: 'k', Modifier: gocui.ModNone, Handler: wrappedHandler(onUp)},
+			{ViewName: viewName, Key: 'e', Modifier: gocui.ModNone, Handler: wrappedHandler(onUp)},
 			{ViewName: viewName, Key: gocui.KeyArrowUp, Modifier: gocui.ModNone, Handler: wrappedHandler(onUp)},
 			{ViewName: viewName, Key: gocui.MouseWheelUp, Modifier: gocui.ModNone, Handler: wrappedHandler(onUp)},
-			{ViewName: viewName, Key: 'j', Modifier: gocui.ModNone, Handler: wrappedHandler(onDown)},
+			{ViewName: viewName, Key: 'n', Modifier: gocui.ModNone, Handler: wrappedHandler(onDown)},
 			{ViewName: viewName, Key: gocui.KeyArrowDown, Modifier: gocui.ModNone, Handler: wrappedHandler(onDown)},
 			{ViewName: viewName, Key: gocui.MouseWheelDown, Modifier: gocui.ModNone, Handler: wrappedHandler(onDown)},
 			{ViewName: viewName, Key: gocui.MouseLeft, Modifier: gocui.ModNone, Handler: wrappedHandler(onClick)},
